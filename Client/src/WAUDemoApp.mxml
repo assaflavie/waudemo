@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   backgroundColor="#EDFFEB" viewSourceURL="srcview/index.html">
+	
+	<fx:Script>
+		<![CDATA[
+			protected function startBtn_clickHandler(event:MouseEvent):void
+			{
+				startRecording();
+				startBtn.enabled = false;
+				stopBtn.enabled = true;
+			}
+			
+			protected function stopBtn_clickHandler(event:MouseEvent):void
+			{
+				stopRecording();
+				startBtn.enabled = true;
+				stopBtn.enabled = false;
+			}
+			
+			public function startRecording() : void
+			{
+				recordingStatus.text = "ON";
+				recordingStatus.setStyle("color", "#1A930A"); 
+			}
+			
+			public function stopRecording() : void
+			{
+				recordingStatus.text = "OFF";
+				recordingStatus.setStyle("color", "#FF0000"); 
+			}
+			
+		]]>
+	</fx:Script>
+	<s:VGroup left="10" right="10" top="10" bottom="10">
+		<s:HGroup>
+			<s:Label text="Recording: ">
+				
+			</s:Label>
+			<s:Label id="recordingStatus" text="OFF" color="#FF0000">
+				
+			</s:Label>
+		</s:HGroup>
+		<s:Button label="Start Recording" id="startBtn" click="startBtn_clickHandler(event)">
+			
+		</s:Button>
+		<s:Button label="Stop Recording" id="stopBtn" click="stopBtn_clickHandler(event)" enabled="false">
+			
+		</s:Button>
+		<s:TextArea id="txtArea">
+			
+		</s:TextArea>
+				  
+	</s:VGroup>
+</s:Application>
